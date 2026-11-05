@@ -1,12 +1,12 @@
 const userRepository = require('../repositories/user.repository');
 
 class ExportService {
-    async exportAllUserProfiles() {
-        const users = userRepository.findAll();
-        if (!users || users.length === 0) {
-            throw new Error("No users found in the system");
+    async exportUserData(email) {
+        const user = userRepository.findByEmail(email);
+        if (!user) {
+            throw new Error("User not found in the system");
         }
-        return users;
+        return JSON.stringify(user);
     }
 }
 
