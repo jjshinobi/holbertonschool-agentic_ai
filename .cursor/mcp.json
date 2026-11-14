@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ping-local": {
+      "command": "/usr/bin/env",
+      "args": ["node", "/Users/dkovtunov/workspaces/sandbox/holbertonschool-agentic_ai/agentic-ai/04_mcp/tutorial/ping_mcp.js"]
+    }
+  }
+}
