@@ -12,4 +12,3 @@
 ![Task 2 session screenshot 1](./task2_session_pic1.png)
 ![Task 2 session screenshot 2](./task2_session_pic2.png)
 ![Task 2 session screenshot 3](./task2_session_pic3.png)
-
