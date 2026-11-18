@@ -3,7 +3,7 @@
 		"sentinel-server": {
 			"type": "stdio",
 			"command": "node",
-			"args": ["--env-file-if-exists=agentic-ai/05_sentinel/.env", "agentic-ai/05_sentinel/mcp_server.js"]
+			"args": ["--env-file=agentic-ai/05_sentinel/.env", "agentic-ai/05_sentinel/mcp_server.js"]
 		}
 	}
 }

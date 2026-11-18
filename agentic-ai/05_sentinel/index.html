@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sentinel: a monitoring dashboard for a GitHub repository's issues.">
+    <title>Sentinel Issue Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <h1>Sentinel</h1>
+        <p class="brand-subtitle">GitHub issue monitor</p>
+      </div>
+
+      <form id="repo-form" class="repo-form" novalidate>
+        <label for="repo-input" class="repo-label">Repository</label>
+        <div class="repo-controls">
+          <input id="repo-input" name="repo" type="text" placeholder="owner/repo" autocomplete="off"
+            autocapitalize="off" spellcheck="false" required aria-describedby="repo-error">
+          <button id="load-button" type="submit">Load</button>
+          <button id="refresh-button" type="button" class="button-secondary">Refresh</button>
+        </div>
+        <p id="repo-error" class="field-error" hidden></p>
+      </form>
+    </header>
+
+    <main id="main" aria-busy="false">
+      <section id="status" class="status" aria-live="polite" hidden></section>
+
+      <section id="empty-state" class="empty-state" aria-labelledby="empty-heading" hidden>
+        <h2 id="empty-heading">No issues yet</h2>
+        <p id="empty-message"></p>
+      </section>
+
+      <div id="dashboard" class="dashboard" hidden>
+        <section class="panel overview" aria-labelledby="overview-heading">
+          <header class="panel-header">
+            <h2 id="overview-heading">Overview</h2>
+            <a id="repo-link" class="repo-link" target="_blank" rel="noopener noreferrer"></a>
+          </header>
+
+          <ul class="tiles">
+            <li class="tile">
+              <h3 class="tile-label">Open issues</h3>
+              <p id="tile-open" class="tile-value">–</p>
+              <p id="tile-open-note" class="tile-note"></p>
+            </li>
+            <li class="tile">
+              <h3 class="tile-label">Closed issues</h3>
+              <p id="tile-closed" class="tile-value">–</p>
+              <p id="tile-closed-note" class="tile-note"></p>
+            </li>
+            <li class="tile">
+              <h3 class="tile-label">Still open</h3>
+              <p id="tile-share" class="tile-value">–</p>
+              <p id="tile-share-note" class="tile-note"></p>
+            </li>
+            <li class="tile">
+              <h3 class="tile-label">Active in last 24 h</h3>
+              <p id="tile-active" class="tile-value">–</p>
+              <p id="tile-active-note" class="tile-note"></p>
+            </li>
+          </ul>
+
+          <figure id="split" class="split">
+            <progress id="split-bar" class="split-bar" max="1" value="0"></progress>
+            <figcaption class="legend">
+              <span class="legend-item"><span class="swatch swatch-open" aria-hidden="true"></span><span id="legend-open">Open</span></span>
+              <span class="legend-item"><span class="swatch swatch-closed" aria-hidden="true"></span><span id="legend-closed">Closed</span></span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <div class="columns">
+          <section class="panel open-issues" aria-labelledby="open-heading">
+            <header class="panel-header">
+              <h2 id="open-heading">Open issues</h2>
+              <p id="open-note" class="panel-note"></p>
+            </header>
+            <div class="table-wrap">
+              <table class="issue-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Issue</th>
+                    <th scope="col">Author</th>
+                    <th scope="col" class="numeric">Comments</th>
+                    <th scope="col">Opened</th>
+                  </tr>
+                </thead>
+                <tbody id="open-body"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <div class="side">
+            <section class="panel activity" aria-labelledby="activity-heading">
+              <header class="panel-header">
+                <h2 id="activity-heading">Recent activity</h2>
+              </header>
+              <ol id="activity-list" class="activity-list"></ol>
+            </section>
+
+            <section class="panel labels" aria-labelledby="labels-heading">
+              <header class="panel-header">
+                <h2 id="labels-heading">Top labels on open issues</h2>
+              </header>
+              <ul id="label-list" class="label-list"></ul>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p id="updated-at">Not loaded yet.</p>
+      <p id="rate-limit"></p>
+    </footer>
+  </body>
+</html>
