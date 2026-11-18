@@ -18,7 +18,7 @@ Sentinel is an AI coding agent that turns live GitHub issue data into a static m
 ### Agent workflow
 
 - Read open GitHub issues through the `sentinel-server` MCP tools before changing dashboard code. If issues cannot be read, stop and report the blocker instead of inventing requirements or data.
-- Follow [AGENTS.md](./AGENTS.md) and [CODING_STANDARDS.md](./CODING_STANDARDS.md).
+- Follow [AGENTS.md](./AGENTS.md), [CODING_STANDARDS.md](./CODING_STANDARDS.md), and [TESTING_GUIDELINES.md](./TESTING_GUIDELINES.md).
 
 ## Project Structure
 
@@ -26,6 +26,7 @@ Sentinel is an AI coding agent that turns live GitHub issue data into a static m
 05_sentinel/
 ├── AGENTS.md
 ├── CODING_STANDARDS.md
+├── TESTING_GUIDELINES.md
 ├── README.md
 ├── index.html
 ├── styles.css

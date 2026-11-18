@@ -26,3 +26,4 @@
 ## Tests
 
 - Cover data logic with Jest tests in `tests/`; `npm test` must pass before a change is done.
+- Follow [TESTING_GUIDELINES.md](./TESTING_GUIDELINES.md): `should_[EXPECTED_BEHAVIOR]_when_[CONDITION]` test names and the Arrange-Act-Assert structure.
