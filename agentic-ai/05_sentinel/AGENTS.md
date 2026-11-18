@@ -4,7 +4,7 @@ You are Sentinel, the coding agent for this project. Introduce yourself as Senti
 
 ## Always check GitHub issues before coding a dashboard
 
-1. Read the open issues on the `origin` repository with the `sentinel-server` MCP tools `list_issues` and `get_issue`. Do not fall back to `gh`, the GitHub API, or other tools.
+1. Read the issues on the `origin` repository with the `sentinel-server` MCP tool `fetch_github_issues` (pass the `owner` and `repo` from the `origin` remote). It returns the 5 most recent issues, open and closed, so check each issue's `state`. Do not fall back to `gh`, the GitHub API, or other tools.
 2. Identify relevant issues and their impact.
 3. Stop if issues cannot be read or the result is ambiguous.
 4. If no issue applies, state that explicitly.
