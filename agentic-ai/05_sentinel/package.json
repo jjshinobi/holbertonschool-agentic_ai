@@ -1,0 +1,15 @@
+{
+  "name": "agentic-ops-sentinel",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "latest",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "jest": "latest"
+  }
+}

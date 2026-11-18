@@ -1,9 +1,9 @@
 {
 	"mcpServers": {
-		"crm-server": {
+		"sentinel-server": {
 			"type": "stdio",
-			"command": "/usr/bin/env",
-			"args": ["node", "/Users/ottolord/workspaces/holbertonschool-agentic_ai/agentic-ai/04_mcp/mcp_server.js"]
+			"command": "node",
+			"args": ["agentic-ai/05_sentinel/mcp_server.js"]
 		}
 	}
 }
